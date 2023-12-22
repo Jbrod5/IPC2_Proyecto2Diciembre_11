@@ -16,7 +16,9 @@ class Cliente:
 
     def obtener_nit(self):
         return self._nit
-    def obtener_nombre_cliente(self):
+    def obtener_nombre(self):
         return self._nombre
     def obtener_direccion(self):
         return self._direccion
+    def obtener_diccionario(self):
+        return self.__dict__

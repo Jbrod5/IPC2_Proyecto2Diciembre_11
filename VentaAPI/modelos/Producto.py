@@ -7,7 +7,7 @@ class Producto:
         self._precio = precio
         self._stock = stock
 
-    def obtener_nombre_producto(self):
+    def obtener_nombre(self):
         return self._nombre
     def obtener_descripion(self):
         return self._descripcion
@@ -17,7 +17,8 @@ class Producto:
         return self._stock
     def obtener_codigo(self):
         return self._codigo
-    
+    def obtener_diccionario(self):
+        return self.__dict__
 
     def establecer_codigo(self, id):
         self._codigo = id

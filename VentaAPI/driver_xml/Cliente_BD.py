@@ -1,7 +1,7 @@
 
 import xml.etree.ElementTree as ET
-from IPC2_Proyecto2Diciembre_11.VentaAPI.modelos import Cliente
-from lista.Lista import Lista
+from modelos.Cliente import Cliente
+#from lista.Lista import Lista
 import os.path as path
 
 
@@ -9,6 +9,16 @@ class Cliente_BD:
     
     def __init__(self):
         self.ruta = "./CLIENTE_BD.xml"
+        if not path.exists(self.ruta):
+            try:
+                root = ET.Element("CLIENTE_BD")
+                tree = ET.ElementTree(root)
+                tree.write(self.ruta)
+                print(f"El archivo se ha creado correctamente.")
+            except IOError:
+                print(f"No se pudo crear el archivo.")
+        else:
+            print(f"El archivo {self.ruta} ya existe.")
     
     # Recibe de Parametro un Cliente Nuevo para su verificación si no existe lo crea y retorna True, caso contrario retorna False
     def verificarClienteNuevo(self, clienteAIngresar: Cliente):
@@ -36,9 +46,15 @@ class Cliente_BD:
         except FileNotFoundError:
             root = ET.Element("CLIENTE_BD")
             tree = ET.ElementTree(root)
-            
+
+
+        # Verificar que los atributos del cliente sean string
+        if isinstance (clienteAIngresar.obtener_nit(), int):
+            clienteAIngresar.establecer_nit( str(clienteAIngresar.obtener_nit()) )
+
+          
         cliente_Elemento = ET.SubElement(root, "CLIENTE", ID=clienteAIngresar.obtener_nit())
-        ET.SubElement(cliente_Elemento, "NOMBRE").text = clienteAIngresar.obtener_nombre_cliente()
+        ET.SubElement(cliente_Elemento, "NOMBRE").text = clienteAIngresar.obtener_nombre()
         ET.SubElement(cliente_Elemento, "NIT").text = clienteAIngresar.obtener_nit()
         ET.SubElement(cliente_Elemento, "DIRECCION").text = clienteAIngresar.obtener_direccion()
         tree.write(self.ruta)
@@ -51,7 +67,7 @@ class Cliente_BD:
                 xml_file = open(self.ruta)
                 
                 if xml_file.readable():
-                    listaClientes = Lista()
+                    listaClientes = []
                     xml_data = ET.fromstring(xml_file.read())
                     listaArchivo = xml_data.findall('CLIENTE')
                     
@@ -60,12 +76,16 @@ class Cliente_BD:
                         nit = cliente.find('NIT').text
                         direccion = cliente.find('DIRECCION').text
                         
-                        listaClientes.agregarALaLista(Cliente(nombre, nit, direccion))
+                        cliente = Cliente(nombre, nit, direccion)
+                        listaClientes.append(cliente)
                         
                     return listaClientes
-                
-            except Exception | FileNotFoundError as err:
-                print("Error: ", err)          
+            
+            except FileNotFoundError as err:
+                print("Error: ", err)   
+            except Exception as err:
+                print("Error: ", err)
+                   
             finally:
                 xml_file.close()
         return None
@@ -75,9 +95,9 @@ class Cliente_BD:
         listaClientes = self.obtenerTodosLosClientes()
         
         if listaClientes is not None:
-            for i in range(listaClientes.obtenerLongitud()):
-                clienteRecibido = listaClientes.obtenerContenido(i + 1).obtenerElementoNodo()
-                
+            for i in range(len(listaClientes)):
+                #clienteRecibido = listaClientes.obtenerContenido(i + 1).obtenerElementoNodo()
+                clienteRecibido = listaClientes[i]
                 if nitCliente == clienteRecibido.obtener_nit():
                     return clienteRecibido
         return None
