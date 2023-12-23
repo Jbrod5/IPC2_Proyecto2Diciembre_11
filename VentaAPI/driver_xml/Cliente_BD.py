@@ -1,7 +1,6 @@
 
 import xml.etree.ElementTree as ET
 from modelos.Cliente import Cliente
-#from lista.Lista import Lista
 import os.path as path
 
 
@@ -76,7 +75,7 @@ class Cliente_BD:
                         nit = cliente.find('NIT').text
                         direccion = cliente.find('DIRECCION').text
                         
-                        cliente = Cliente(nombre, nit, direccion)
+                        cliente = Cliente(nit, nombre, direccion)
                         listaClientes.append(cliente)
                         
                     return listaClientes
