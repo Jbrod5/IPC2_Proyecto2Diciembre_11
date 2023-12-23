@@ -1,0 +1,7 @@
+# Ignorar todos los xml generados por la app
+VentaAPI/PRODUCTO_BD.xml
+VentaAPI/CLIENTE_BD.xml
+
+# Ignorar pycache
+__pycache__/
+*.pyc
