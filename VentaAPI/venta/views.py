@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse,JsonResponse, HttpRequest
+from django.views.decorators.csrf import csrf_exempt
 from .models import Cliente_Controller
 from .models import Producto_Controller
 
@@ -29,6 +30,20 @@ def obtener_cliente(request, nit):
     cliente_json = controller.obtener_cliente(nit)
     return JsonResponse(cliente_json, safe = False)
 
+# POST
+@csrf_exempt
+def ingresar_cliente(request):
+    if request.method == 'POST':
+
+        controller = Cliente_Controller()
+
+        nit = request.POST['nit']
+        nombre = request.POST['nombre']
+        direccion = request.POST['direccion']
+
+        cliente = Cliente(nit, nombre, direccion)
+        controller.ingresar_cliente_nuevo(cliente)
+        return HttpResponse("Cliente ingresado correctamente!")
 
 # PRODUCTOS ----------------------------------------------------------------------------------------------
 
@@ -47,3 +62,21 @@ def obtener_producto(request, codigo):
     producto_json = controller.obtener_producto(codigo)
     return JsonResponse(producto_json, safe = False)
 
+# POST
+@csrf_exempt
+def ingresar_producto(request):
+    if request.method == 'POST':
+
+        controller = Producto_Controller()
+
+        codigo = request.POST['codigo']        
+        nombre = request.POST['nombre']
+        descripcion = request.POST['descripcion']
+        precio = request.POST['precio']
+        stock = request.POST['stock']
+
+        producto = Producto(codigo, nombre, descripcion, precio, stock)
+        controller.ingresar_producto_nuevo(producto)
+        return HttpResponse("Producto ingresado correctamente!")
+    
+    

@@ -125,3 +125,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# DESABILITANDO CSRF -------------------
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_HTTPONLY = False
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True

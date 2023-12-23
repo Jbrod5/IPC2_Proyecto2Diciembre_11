@@ -9,8 +9,10 @@ urlpatterns = [
     #path("hola_params-<str:nombre>", views.hello_con_params)
     path("obtener-todos-los-clientes", views.obtener_clientes),
     path("obtener-cliente:<str:nit>", views.obtener_cliente),
+    path('ingresar-cliente', views.ingresar_cliente),
 
 
     path("obtener-todos-los-productos", views.obtener_productos),
     path("obtener-producto:<str:codigo>", views.obtener_producto),
+    path('ingresar-producto', views.ingresar_producto),
 ]
