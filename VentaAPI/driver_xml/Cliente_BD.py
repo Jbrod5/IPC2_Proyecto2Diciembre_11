@@ -121,9 +121,9 @@ class Cliente_BD:
                 tree = ET.ElementTree(root)
         return False
 
-    # Actualizar a un Cliente en base a su NIT, el valor Nuevo y la etiqueta a modificar
+    # Actualizar a un Cliente en base a su NIT, y cambia los valores del Nombre y la Dirección
     # Si todo se realiza bien retorna True, caso Contrario retorna False
-    def actualizarCliente(self, nitCliente: int, etiqueta, dato):
+    def actualizarCliente(self, nitCliente: int, nuevoNombre, nuevaDireccion):
         
         if path.exists(self.ruta):
             try:
@@ -132,7 +132,8 @@ class Cliente_BD:
                 
                 clienteEspecifico = self.obtenerClienteEspecifico(nitCliente)
                 cliente_existente = root.find(f"./CLIENTE[@ID='{clienteEspecifico.obtener_nit()}'][NIT='{nitCliente}']")
-                cliente_existente.find(etiqueta).text = dato       
+                cliente_existente.find("NOMBRE").text = nuevoNombre 
+                cliente_existente.find("DIRECCION").text = nuevaDireccion      
                 tree.write(self.ruta)
                 return True
             except FileNotFoundError:
