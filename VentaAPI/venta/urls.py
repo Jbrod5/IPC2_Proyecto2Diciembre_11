@@ -10,7 +10,8 @@ urlpatterns = [
     path("obtener-todos-los-clientes", views.obtener_clientes),
     path("obtener-cliente:<str:nit>", views.obtener_cliente),
     path('ingresar-cliente', views.ingresar_cliente),
-
+    path('eliminar-cliente', views.eliminar_cliente),
+    path('actualizar-cliente', views.actualizar_cliente),
 
     path("obtener-todos-los-productos", views.obtener_productos),
     path("obtener-producto:<str:codigo>", views.obtener_producto),

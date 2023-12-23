@@ -103,19 +103,28 @@ class Cliente_BD:
       
     # Elimina un Usuario en base a su NIT y retorna True, caso contrario retorna False     
     def eliminarCliente(self, nitCliente: int):
-        
+
         if path.exists(self.ruta):
             try:
+                # Parsear el archivo XML
                 tree = ET.parse(self.ruta)
                 root = tree.getroot()
-                
-                for cliente in root.findall('CLIENTE'):
-                    id = cliente.get('ID')
-                    
-                    if int(id) == nitCliente:
-                        root.remove(cliente)
-                tree.write(self.ruta)
-                return True
+
+                # Buscar el elemento CLIENTE con el ID correspondiente
+                cliente = root.find(f"./CLIENTE[@ID='{nitCliente}']")
+
+                if cliente is not None:
+                    # Eliminar el elemento CLIENTE del árbol
+                    root.remove(cliente)
+
+                    # Guardar los cambios en el archivo XML
+                    with open(self.ruta, "w") as archivo:
+                        archivo.write("")
+                        archivo.close()
+                    tree.write(self.ruta)
+                    return True
+                else:
+                    return False
             except FileNotFoundError:
                 root = ET.Element("CLIENTE_BD")
                 tree = ET.ElementTree(root)

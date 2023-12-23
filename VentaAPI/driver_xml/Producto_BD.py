@@ -116,17 +116,28 @@ class Producto_BD:
                 tree = ET.parse(self.ruta)
                 root = tree.getroot()
                 
-                for producto in root.findall('PRODUCTO'):
-                    id = producto.get('ID')
-                    
-                    if int(id) == codigoProducto:
-                        root.remove(producto)
-                tree.write(self.ruta)
-                return True
+                # Buscar el elemento PRODUCTO con el id 
+                producto = root.find(f"./PRODUCTO[@ID='{codigoProducto}']")
+                
+                if producto is not None: 
+                    # Eliminar el producto del arbol
+                    root.remove(producto)
+
+                    # Guardar los cambios en el xml 
+                    with open(self.ruta, "w") as archivo: 
+                        archivo.write("")
+                        archivo.close()
+                    tree.write(self.ruta)
+                    return True
+                else: 
+                    return False
+                
             except FileNotFoundError:
-                root = ET.Element("PRODUCTO_BD")
+                root = ET.Element("CLIENTE_BD")
                 tree = ET.ElementTree(root)
         return False
+    
+
     
     # Actualiza el producto en base a su Codigo, y cambia el nombre, la descripcion, el precio y el stock
     # Si todo se realiza bien retorna True, caso Contrario retorna False

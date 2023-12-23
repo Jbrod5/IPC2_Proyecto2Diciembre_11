@@ -5,6 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Cliente_Controller
 from .models import Producto_Controller
 
+from django.http import QueryDict
+
 from modelos.Cliente import Cliente
 from modelos.Producto import Producto
 
@@ -14,13 +16,7 @@ from modelos.Producto import Producto
 @csrf_exempt
 def obtener_clientes(request):
 
-    cliente = Cliente("123", "Pedro", "Dir 1")
-    cliente2 = Cliente("456", "Maria", "Dir 2")
-
     controller = Cliente_Controller()
-
-    controller.ingresar_cliente_nuevo(cliente)
-    controller.ingresar_cliente_nuevo(cliente2)
 
     clientes = controller.obtener_todos()
     response =  JsonResponse(clientes, safe = False)
@@ -48,16 +44,37 @@ def ingresar_cliente(request):
         controller.ingresar_cliente_nuevo(cliente)
         return HttpResponse("Cliente ingresado correctamente!")
 
+@csrf_exempt
+def eliminar_cliente(request):
+    if request.method == 'DELETE':
+        controller = Cliente_Controller()
+
+        data = QueryDict(request.body)
+        nit = data.get('nit')
+        controller.eliminar(nit)
+        return HttpResponse("Cliente eliminado correctamente")
+
+@csrf_exempt
+def actualizar_cliente(request):
+    if request.method == 'PATCH':
+        controller = Cliente_Controller()
+
+        data = QueryDict(request.body)
+        nit = data.get('nit')
+        nombre = data.get('nombre')
+        direccion = data.get('direccion')
+
+        cliente = Cliente(nit, nombre, direccion)
+        controller.actualizar(cliente)
+        return HttpResponse("Cliente actualizado correctamente")
+        
+
 # PRODUCTOS ----------------------------------------------------------------------------------------------
 
 @csrf_exempt
 def obtener_productos(request):
-    producto = Producto("1", "prod prueba", "este es un producto de prueba", 20, 30)
-    producto2 = Producto("2", "prueba2", "este es el segundo prodcto de prueba", 4, 150)
     controller = Producto_Controller()
 
-    controller.ingresar_producto_nuevo(producto)
-    controller.ingresar_producto_nuevo(producto2)
     productos = controller.obtener_todos()
     return JsonResponse(productos, safe=False)
 

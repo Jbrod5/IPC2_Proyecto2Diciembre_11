@@ -60,7 +60,35 @@ class Cliente_Controller:
         cliente_dic = cliente.obtener_diccionario()
         json_string = json.dumps(cliente_dic)
         return json_string
+    
+    def eliminar(self, nit):
+        """
+        Elimina un cliente en base a un nit, y returna True o False si se elimino correctamente
+        """
+        if nit != None:
+            eliminado = self._cliente_bd.eliminarCliente(nit)
+            return eliminado
+        else: 
+            print("El nit esta vacio")
+            return False
 
+    def actualizar(self, cliente):
+        if cliente != None:
+
+            if isinstance(cliente, Cliente):
+                valido = cliente.obtener_nombre() !=  None and cliente.obtener_nit() != None and cliente.obtener_direccion() != None
+            
+                if valido:
+                    nit = cliente.obtener_nit()
+                    nombre = cliente.obtener_nombre()
+                    direccion = cliente.obtener_direccion()
+                    self._cliente_bd.actualizarCliente(nit, nombre, direccion)
+            
+            else: 
+                print("El objeto no es una instancia de cliente")
+
+        else: 
+            print("No se paso una instancia")
 
 class Producto_Controller:
     def __init__(self):
