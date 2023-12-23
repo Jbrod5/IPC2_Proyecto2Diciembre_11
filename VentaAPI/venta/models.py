@@ -50,8 +50,16 @@ class Cliente_Controller:
         json_string = json.dumps(lista_diccionarios)
         print(json_string)
         return json_string
-
     
+    def obtener_cliente(self, nit):
+        """
+        Retrorna un string con el json de un solo cliente en base al nit
+        """
+
+        cliente = self._cliente_bd.obtenerClienteEspecifico(nit)
+        cliente_dic = cliente.obtener_diccionario()
+        json_string = json.dumps(cliente_dic)
+        return json_string
 
 
 class Producto_Controller:
@@ -93,4 +101,14 @@ class Producto_Controller:
 
         json_string = json.dumps(lista_diccionarios)
         print(json_string)
+        return json_string
+
+    def obtener_producto(self, codigo):
+        """
+        Retorna un string con el json del producto a buscar en base a su codigo
+        """
+
+        producto = self._producto_bd.obtenerProductoEspecifico(codigo)
+        producto_dic = producto.obtener_diccionario()
+        json_string = json.dumps(producto_dic)
         return json_string

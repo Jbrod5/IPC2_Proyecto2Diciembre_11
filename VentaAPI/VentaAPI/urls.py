@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # incluir urls de las apps externas
-    path('clientes/', include('venta.urls') ),
+    path('venta/', include('venta.urls') ),
 ]
