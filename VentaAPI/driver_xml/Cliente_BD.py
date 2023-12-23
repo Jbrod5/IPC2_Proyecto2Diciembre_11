@@ -1,7 +1,6 @@
 
 import xml.etree.ElementTree as ET
 from modelos.Cliente import Cliente
-#from lista.Lista import Lista
 import os.path as path
 
 

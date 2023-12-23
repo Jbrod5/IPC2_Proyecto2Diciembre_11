@@ -1,6 +1,5 @@
 import xml.etree.ElementTree as ET
 from modelos.Producto import Producto
-#from lista.Lista import Lista
 import os.path as path
 
 
