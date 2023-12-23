@@ -11,6 +11,7 @@ from modelos.Producto import Producto
 # Create your views here.
 
 # CLIENTES ------------------------------------------------------------------------------------------------
+@csrf_exempt
 def obtener_clientes(request):
 
     cliente = Cliente("123", "Pedro", "Dir 1")
@@ -22,9 +23,11 @@ def obtener_clientes(request):
     controller.ingresar_cliente_nuevo(cliente2)
 
     clientes = controller.obtener_todos()
-    return JsonResponse(clientes, safe = False)
+    response =  JsonResponse(clientes, safe = False)
+    response["Access-Control-Allow-Origin"] = "*"
+    return response
 
-
+@csrf_exempt
 def obtener_cliente(request, nit):
     controller = Cliente_Controller()
     cliente_json = controller.obtener_cliente(nit)
@@ -47,6 +50,7 @@ def ingresar_cliente(request):
 
 # PRODUCTOS ----------------------------------------------------------------------------------------------
 
+@csrf_exempt
 def obtener_productos(request):
     producto = Producto("1", "prod prueba", "este es un producto de prueba", 20, 30)
     producto2 = Producto("2", "prueba2", "este es el segundo prodcto de prueba", 4, 150)
@@ -57,6 +61,7 @@ def obtener_productos(request):
     productos = controller.obtener_todos()
     return JsonResponse(productos, safe=False)
 
+@csrf_exempt
 def obtener_producto(request, codigo):
     controller = Producto_Controller()
     producto_json = controller.obtener_producto(codigo)
@@ -78,5 +83,4 @@ def ingresar_producto(request):
         producto = Producto(codigo, nombre, descripcion, precio, stock)
         controller.ingresar_producto_nuevo(producto)
         return HttpResponse("Producto ingresado correctamente!")
-    
     

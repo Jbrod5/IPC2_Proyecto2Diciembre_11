@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Clientes</h1>
+        <div id="clientes-container" class="row"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Obtener la lista de clientes desde la URL
+            $.getJSON('http://127.0.0.1:8000/venta/obtener-todos-los-clientes', function(data) {
+                var clientes = JSON.parse(data); // Convertir el objeto JSON en un array
+                console.log(clientes)
+
+                // Recorrer la lista de clientes y crear las tarjetas
+                clientes.forEach(function(cliente) {
+                    var cardHtml = `
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">${cliente._nombre}</h5>
+                                    <p class="card-text"><strong>NIT:</strong> ${cliente._nit}</p>
+                                    <p class="card-text"><strong>Dirección:</strong> ${cliente._direccion}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    $('#clientes-container').append(cardHtml);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
