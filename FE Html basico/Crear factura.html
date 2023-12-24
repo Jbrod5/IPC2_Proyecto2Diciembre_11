@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Factura</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function agregarCampo() {
+            var divProductos = document.getElementById("productos");
+            var nuevoCampo = document.createElement("div");
+            nuevoCampo.className = "form-row";
+            nuevoCampo.innerHTML = `
+                <br>
+                <div class="col">
+                    <input type="text" class="form-control" name="codigo[]" placeholder="Codigo del producto">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="cantidad[]" placeholder="Cantidad">
+                </div>
+                <div class="col-auto">
+                    <button type="button" class="btn btn-danger" onclick="eliminarCampo(this)">Eliminar</button>
+                </div>
+            `;
+            divProductos.appendChild(nuevoCampo);
+        }
+
+        function eliminarCampo(elemento) {
+            var divProductos = document.getElementById("productos");
+            divProductos.removeChild(elemento.parentNode.parentNode);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Formulario de Factura</h1>
+        <form action="http://127.0.0.1:8000/venta/ingresar-factura" method="POST">
+            <div class="form-group">
+                <label for="nit">NIT</label>
+                <input type="text" class="form-control" id="nit" name="nit" placeholder="NIT">
+            </div>
+
+            <div id="productos">
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" name="codigo[]" placeholder="Codigo del producto">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="cantidad[]" placeholder="Cantidad">
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-danger" onclick="eliminarCampo(this)">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary mt-2" onclick="agregarCampo()">Agregar Producto</button>
+            <br>
+            <input type="submit" class="btn btn-success mt-2" value="Guardar Factura">
+        </form>
+    </div>
+</body>
+</html>
