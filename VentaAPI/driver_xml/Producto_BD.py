@@ -141,7 +141,7 @@ class Producto_BD:
     
     # Actualiza el producto en base a su Codigo, y cambia el nombre, la descripcion, el precio y el stock
     # Si todo se realiza bien retorna True, caso Contrario retorna False
-    def actualizarCliente(self, codigoProducto: int, nuevoNombre, nuevaDescripcion, nuevoPrecio, nuevoStock):
+    def actualizarProducto(self, codigoProducto: int, nuevoNombre, nuevaDescripcion, nuevoPrecio, nuevoStock):
         
         if path.exists(self.ruta):
             try:
@@ -156,7 +156,9 @@ class Producto_BD:
                 cliente_existente.find("STOCK").text = nuevoStock       
                 tree.write(self.ruta)
                 return True
-            except FileNotFoundError:
+            except FileNotFoundError as err:
+                print(err)
                 root = ET.Element("PRODUCTO_BD")
                 tree = ET.ElementTree(root)
+
         return False

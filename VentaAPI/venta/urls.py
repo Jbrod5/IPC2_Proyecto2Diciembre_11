@@ -16,4 +16,6 @@ urlpatterns = [
     path("obtener-todos-los-productos", views.obtener_productos),
     path("obtener-producto:<str:codigo>", views.obtener_producto),
     path('ingresar-producto', views.ingresar_producto),
+    path('eliminar-producto', views.eliminar_producto),
+    path('actualizar-producto', views.actualizar_producto),
 ]

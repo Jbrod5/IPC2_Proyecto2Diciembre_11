@@ -101,3 +101,36 @@ def ingresar_producto(request):
         controller.ingresar_producto_nuevo(producto)
         return HttpResponse("Producto ingresado correctamente!")
     
+@csrf_exempt
+def eliminar_producto(request):
+    if request.method == 'DELETE':
+        control = Producto_Controller()
+
+        data = QueryDict(request.body)
+        codigo_producto = data.get('codigo_producto')
+
+        eliminado = control.eliminar_producto(codigo_producto)
+
+        if eliminado:
+            return HttpResponse("Producto eliminado correctamente!")
+        else:
+            return HttpResponse("Fallo al eliminar el producto")
+
+@csrf_exempt
+def actualizar_producto(request):
+    if request.method == 'PATCH':
+        control = Producto_Controller()
+
+        data = QueryDict(request.body)
+        codigo_producto = data.get('codigo_producto')
+        nombre = data.get('nombre')
+        descripcion = data.get('descripcion')
+        precio = data.get('precio')
+        stock = data.get('stock')
+
+        actualizar = control.actualizar_producto(codigo_producto, nombre, descripcion, precio, stock)
+
+        if actualizar:
+            return HttpResponse('Producto actualizado exitosamente!')
+        else:
+            return HttpResponse('No se pudo actualizar el producto')

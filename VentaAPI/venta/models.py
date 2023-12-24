@@ -140,3 +140,22 @@ class Producto_Controller:
         producto_dic = producto.obtener_diccionario()
         json_string = json.dumps(producto_dic)
         return json_string
+    
+    def eliminar_producto(self, codigo_producto):
+        if codigo_producto == None:
+            print('Producto no Encontrado')
+            return False
+        else:
+            eliminado = self._producto_bd.eliminarProducto(codigo_producto)
+            return eliminado
+        
+    def actualizar_producto(self, codigo_producto, nombre, descripcion, precio, stock):
+        
+        valido = codigo_producto != None and nombre != None and descripcion != None and precio != None and stock != None
+        
+        if valido:
+            actualizar = self._producto_bd.actualizarProducto(codigo_producto, nombre, descripcion, precio, stock)
+            return actualizar
+        else:
+            print('Fallo al actualizar el producto')
+            return False
