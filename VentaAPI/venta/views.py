@@ -2,13 +2,17 @@ from django.shortcuts import render
 
 from django.http import HttpResponse,JsonResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt
+
 from .models import Cliente_Controller
 from .models import Producto_Controller
+from .models import Factura_Controller
+
 
 from django.http import QueryDict
 
 from modelos.Cliente import Cliente
 from modelos.Producto import Producto
+from modelos.Factura import Factura
 
 # Create your views here.
 
@@ -134,3 +138,38 @@ def actualizar_producto(request):
             return HttpResponse('Producto actualizado exitosamente!')
         else:
             return HttpResponse('No se pudo actualizar el producto')
+        
+# FACTURAS -------------------------------------------------------------------------------------------------
+
+@csrf_exempt
+def obtener_facturas(requet):
+    controller = Factura_Controller()
+
+    facturas = controller.obtener_todas()
+    return JsonResponse(facturas, safe=False)
+
+
+@csrf_exempt
+def ingresar_factura(request):
+    if request.method == 'POST':
+        controller = Factura_Controller()
+
+        data = QueryDict(request.body)
+        nit = data.get('nit')
+        lista_codigos = data.getlist('codigo[]')
+        lista_cantidades = data.getlist('cantidad[]')
+
+        factura = Factura(nit, " . ")
+
+        controller.ingresar_factura_nueva(factura, lista_codigos, lista_cantidades)
+        return HttpResponse("Factura agregada correctamente")
+
+@csrf_exempt
+def obtener_facturas_cliente(requet, nit):
+    controller = Factura_Controller()
+
+    facturas = controller.obtener_facturas_cliente(nit)
+    return JsonResponse(facturas, safe=False)
+
+
+

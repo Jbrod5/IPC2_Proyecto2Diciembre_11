@@ -1,7 +1,8 @@
 import xml.etree.ElementTree as ET
 import os.path as path
-from VentaAPI.driver_xml.Contador_Facturas_BD import Contador_Facturas_BD
-from VentaAPI.modelos import Factura, ProductoGuia
+from .Contador_Facturas_BD import Contador_Facturas_BD
+from modelos.Factura import Factura
+from modelos.ProductoGuia import ProductoGuia
 
 class Factura_BD:
     
@@ -56,9 +57,13 @@ class Factura_BD:
                         codigoProducto = producto.find('CODIGO_PRODUCTO').text
                         cantidadAdquirida = producto.find('CANTIDAD_ADQUIRIDA').text
                         facturaEntrante.agregarProducto(ProductoGuia(codigoProducto, cantidadAdquirida))
-                    listaFacturas.append(facturaEntrante)         
-            except Exception | FileNotFoundError as err:
-                print("Error: ", err)            
+                    listaFacturas.append(facturaEntrante) 
+                    #print (facturaEntrante.obtener_diccionario())        
+            except FileNotFoundError as err:
+                print("Error: ", err)
+            except Exception as err:
+                print("Error: ", err)
+
         return listaFacturas
     
     # Obtenemos una lista con todas las facturas de un cliente en especifico

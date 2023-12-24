@@ -9,6 +9,8 @@ class Factura:
         
     def establecer_noFactura(self, noFactura):
         self._noFactura = noFactura
+    def establecer_fecha_emision(self, fecha):
+        self._fechaDeEmision = fecha
         
     def obtener_noFactura(self):
         return self._noFactura
@@ -25,3 +27,19 @@ class Factura:
     def obtener_FechaDeEmision(self):
         return self._fechaDeEmision
     
+    def obtener_diccionario(self):
+        
+        dict_productos = {}
+        contador = 0
+        while contador < len(self._listaDeProductosComprados):
+            tupla = self._listaDeProductosComprados[contador]
+            dict_productos[tupla.obtener_codigoProducto()] = tupla.obtener_cantidadAdquirida()
+            contador += 1
+
+        dict = {
+            "Numero": self._noFactura,
+            "Nit": self._nit,
+            "Fecha_emision": self._fechaDeEmision,
+            "Productos" : dict_productos 
+            }
+        return dict

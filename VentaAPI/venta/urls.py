@@ -18,4 +18,8 @@ urlpatterns = [
     path('ingresar-producto', views.ingresar_producto),
     path('eliminar-producto', views.eliminar_producto),
     path('actualizar-producto', views.actualizar_producto),
+
+    path('obtener-todas-las-facturas', views.obtener_facturas),
+    path('obtener-facturas-cliente:<int:nit>', views.obtener_facturas_cliente),
+    path('ingresar-factura', views.ingresar_factura),
 ]

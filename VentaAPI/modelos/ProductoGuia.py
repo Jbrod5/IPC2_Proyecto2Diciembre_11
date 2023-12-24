@@ -10,3 +10,6 @@ class ProductoGuia:
     
     def obtener_cantidadAdquirida(self):
         return self._cantidadAdquirida
+    
+    def obtener_diccionario_producto_guia(self):
+        return self.__dict__
