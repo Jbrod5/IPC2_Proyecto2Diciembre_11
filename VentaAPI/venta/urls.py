@@ -22,4 +22,5 @@ urlpatterns = [
     path('obtener-todas-las-facturas', views.obtener_facturas),
     path('obtener-facturas-cliente:<int:nit>', views.obtener_facturas_cliente),
     path('ingresar-factura', views.ingresar_factura),
+    path('eliminar-factura', views.eliminar_factura),
 ]

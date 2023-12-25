@@ -85,13 +85,24 @@ class Factura_BD:
                 tree = ET.parse(self.ruta)
                 root = tree.getroot()
                 
-                for factura in root.findall('FACTURA'):
-                    id = factura.get('ID')
-                    
-                    if int(id) == noFactura:
-                        root.remove(factura)
-                tree.write(self.ruta)
-                return True
-            except Exception | FileNotFoundError as err:
+                # Buscar la factura por id
+                factura = root.find(f"./FACTURA[@ID='{noFactura}']")
+
+                if factura is not None: 
+                    # Eliminar la factura del arbol: 
+                    root.remove(factura)
+
+                    # Guardar los cambios en el xml 
+                    with open(self.ruta, "w") as archivo:
+                        archivo.write("")
+                        archivo.close()
+                    tree.write(self.ruta)
+                    return True
+                else:
+                    return False
+
+            except FileNotFoundError as err:
+                print("Error: ", err)
+            except Exception as err: 
                 print("Error: ", err)                
         return False

@@ -172,4 +172,13 @@ def obtener_facturas_cliente(requet, nit):
     return JsonResponse(facturas, safe=False)
 
 
+@csrf_exempt
+def eliminar_factura(request):
+    if request.method == 'DELETE':
+        controller = Factura_Controller()
 
+    data = QueryDict(request.body)
+    numero_factura = data.get('factura')
+
+    controller.eliminar_factura(numero_factura)
+    return HttpResponse("Factura eliminada correctamente")

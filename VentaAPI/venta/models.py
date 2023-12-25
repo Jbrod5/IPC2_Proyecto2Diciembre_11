@@ -231,3 +231,14 @@ class Factura_Controller:  # ---------------------------------------------------
         json_string = json.dumps(lista_diccionarios)
         #print(json_string)
         return json_string
+
+    def eliminar_factura(self, numero_factura):
+        """
+        Elimina una factura en base a su numero correlativos
+        """
+
+        if numero_factura != None:
+            self._factura_bd.eliminarFactura(numero_factura)
+             
+        else: 
+            print("No hay un numero valido de factura para eliminar")
