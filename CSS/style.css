@@ -1,0 +1,165 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d4ced4;
+  font-family: "Verdana", Helvetica;
+}  
+
+.barra-superior {
+  position: absolute;
+  width: 100%;
+  height: 75px;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+}
+
+h1 {
+  position: absolute;
+  width: 200px;
+  height: 75px;
+  top: 0;
+  left: 80px;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 24px;
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+}
+  
+.logotipo {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 12px;
+  left: 14px;
+  background-color: #d9d9d9;
+  border-radius: 25px;
+}
+  
+.barra-busqueda {
+  position: absolute;
+  width: 800px;
+  height: 35px;
+  top: 20px;
+  left: 320px;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+}
+ 
+.barra-busqueda-input {
+  position: absolute;
+  width: 800px;
+  height: 35px;
+  top: 0;
+  font-family: "Verdana", Helvetica;
+  font-weight: 400;
+  color: #898989;
+  background-color: #00000000;
+  border-color: #00000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  padding-left: 40px;
+}
+
+.barra-busqueda-input:focus {
+  outline: none;
+}
+  
+.espacio-botones {
+  position: absolute;
+  width: 1180px;
+  height: 530px;
+  top: 100px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+  
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  width: 300px;
+  height: 400px;
+    
+  gap: 20px;
+  padding: 35px 20px;
+  margin: 65px 45px;
+    
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 5px solid #db03ff;
+  color: #db03ff;
+
+  font-family: "Verdana", Helvetica;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+
+  cursor: pointer;
+  transition: border 0.3s, color 0.3s;
+}
+
+
+#botonFacturas {
+  background-image: url("../assets/facturamorada.png");
+  background-size: 200px 200px;
+  background-position-x: center;
+  background-position-y: 35%;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s;
+}
+
+#botonFacturas:hover {
+  /*background-image: url("../assets/facturaturquesa.png");*/
+  background-image: url("../assets/facturarosa.png");
+  border: 5px solid #FF1B8E;
+  color: #FF1B8E;
+}
+
+#botonClientes {
+  background-image: url("../assets/clientemorado.png");
+  background-size: 200px 200px;
+  background-position-x: center;
+  background-position-y: 35%;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s;
+}
+
+#botonClientes:hover {
+  /*background-image: url("../assets/clienteturquesa.png");*/
+  background-image: url("../assets/clienterosa.png");
+  border: 5px solid #FF1B8E;
+  color: #FF1B8E;
+}
+
+#botonProductos {
+  background-image: url("../assets/productomorado.png");
+  background-size: 200px 200px;
+  background-position-x: center;
+  background-position-y: 35%;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s;
+}
+
+#botonProductos:hover {
+  /*background-image: url("../assets/productoturquesa.png");*/
+  background-image: url("../assets/productorosa.png");
+  border: 5px solid #FF1B8E;
+  color: #FF1B8E;
+}
+  
