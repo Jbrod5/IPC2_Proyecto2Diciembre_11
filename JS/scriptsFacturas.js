@@ -11,7 +11,7 @@ function agregarProducto() {
             <input type="text" class="form-control" name="cantidad[]" placeholder="Cantidad">
         </div>
         <div class="col-auto">
-            <button type="button" class="btn btn-danger" onclick="eliminarCampo(this)">Eliminar</button>
+            <button type="button" class="btn btn-danger" onclick="eliminarProducto(this)">Eliminar</button>
         </div>`;
     divProductos.appendChild(nuevoProducto);
 }
@@ -19,4 +19,51 @@ function agregarProducto() {
 function eliminarProducto(elemento) {
     var divProductos = document.getElementById("productos");
     divProductos.removeChild(elemento.parentNode.parentNode);
+}
+
+function agregarFactura() {
+    var divContenido = document.getElementById("contenido");
+    var vistaExistente = document.querySelector(".form-factura");
+
+    if (!vistaExistente) {
+        var vista = document.createElement("div");
+        vista.className = "form-factura";
+        vista.innerHTML =
+            `<div class="container">
+                <form action="http://127.0.0.1:8000/venta/ingresar-factura" method="POST">
+                    <div class="titulo">
+                        <label for="nit">NIT</label>
+                        <input type="text" class="input" id="nit" name="nit" placeholder="NIT">
+                    </div>
+
+                    <div id="productos">
+                        <div class="form">
+                            <div class="col">
+                                <input type="text" class="inputForm" name="codigo[]" placeholder="Codigo del producto">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="inputForm" name="cantidad[]" placeholder="Cantidad">
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-danger" onclick="eliminarProducto(this)">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="buttonForm" id="addProducto" onclick="agregarProducto()">Agregar Producto</button>
+                    <br>
+                    <input type="submit" class="buttonForm" id="guardar" value="Guardar Factura">
+                </form>
+                <script src="../JS/scriptsFacturas.js"></script>
+            </div>`
+        divContenido.appendChild(vista)
+    }
+}
+
+function verFacturas() {
+    var divContenido = document.getElementById("contenido");
+    var vistaExistente = document.querySelector(".form-factura");
+
+    if (vistaExistente) {
+        divContenido.removeChild(vistaExistente);
+    }
 }
