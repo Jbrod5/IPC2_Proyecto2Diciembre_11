@@ -61,6 +61,7 @@ class Producto_BD:
         ET.SubElement(producto_elemento, "DESCRIPCION").text = productoAIngresar.obtener_descripion()
         ET.SubElement(producto_elemento, "PRECIO").text = productoAIngresar.obtener_precio()
         ET.SubElement(producto_elemento, "STOCK").text = productoAIngresar.obtener_stock()
+        ET.SubElement(producto_elemento, "VENTA").text = productoAIngresar.obtener_venta()
         tree.write(self.ruta)
         
     # Obtiene todos los Productos del Archivo XML, en caso el archivo no exista retorna None    
@@ -81,8 +82,10 @@ class Producto_BD:
                         descripcion = cliente.find('DESCRIPCION').text
                         precio = cliente.find('PRECIO').text
                         stock = cliente.find('STOCK').text
+                        venta = cliente.find('VENTA').text
                         
                         producto = Producto(codigo, nombre, descripcion, precio, stock)
+                        producto.establecer_venta(venta)
                         listaProductos.append(producto)
                         
                     return listaProductos
@@ -133,11 +136,9 @@ class Producto_BD:
                     return False
                 
             except FileNotFoundError:
-                root = ET.Element("CLIENTE_BD")
+                root = ET.Element("PRODUCTO_BD")
                 tree = ET.ElementTree(root)
         return False
-    
-
     
     # Actualiza el producto en base a su Codigo, y cambia el nombre, la descripcion, el precio y el stock
     # Si todo se realiza bien retorna True, caso Contrario retorna False
@@ -158,6 +159,31 @@ class Producto_BD:
                 return True
             except FileNotFoundError as err:
                 print(err)
+                root = ET.Element("PRODUCTO_BD")
+                tree = ET.ElementTree(root)
+
+        return False
+    
+    def actualizarStockYVentas(self, codigoProducto, cantidadVentidad):
+        
+        if path.exists(self.ruta):
+            try:
+                tree = ET.parse(self.ruta)
+                root = tree.getroot()
+            
+                cliente_existente = root.find(f"./PRODUCTO[@ID='{codigoProducto}'][CODIGO='{codigoProducto}']")
+                
+                ventasRealizadas = int(cliente_existente.find("VENTA").text)  
+                ventasRealizadas += cantidadVentidad 
+                cliente_existente.find("VENTA").text = str(ventasRealizadas)
+                
+                stockActual = int(cliente_existente.find("STOCK").text)
+                stockActual -= cantidadVentidad 
+                cliente_existente.find("STOCK").text = str(stockActual)
+                
+                tree.write(self.ruta)
+                return True
+            except FileNotFoundError as err:
                 root = ET.Element("PRODUCTO_BD")
                 tree = ET.ElementTree(root)
 
