@@ -1,9 +1,9 @@
 function irAFacturas() {
-    window.location.href = '/facturas/';
+    window.location.href = '/v/facturas/';
 }
 function irAClientes() {
-    window.location.href = '/clientes/';
+    window.location.href = '/v/clientes/';
 }
 function irAProductos() {
-    window.location.href = '/productos/';
+    window.location.href = '/v/productos/';
 }

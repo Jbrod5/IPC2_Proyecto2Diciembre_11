@@ -1,0 +1,40 @@
+.espacio-botones {
+    position: absolute;
+    width: auto;
+    height: 530px;
+    padding: 30px 25px;
+    top: 100px;
+    left: 5%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  
+    width: 150px;
+    height: 50px;
+      
+    gap: 20px;
+    margin: 10px 10px;
+      
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 5px solid #db03ff;
+    color: #db03ff;
+  
+    font-family: "Verdana", Helvetica;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    justify-content: center;
+  
+    cursor: pointer;
+    transition: border 0.3s, color 0.3s;
+}

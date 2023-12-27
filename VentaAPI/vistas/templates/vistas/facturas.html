@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../CSS/globals.css" />
-        <link rel="stylesheet" href="../CSS/styleFactura.css" />
-        <script src="../JS/scriptsGlobal.js"></script>
-        <script src="../JS/scriptsFacturas.js"></script>
+        <link rel="stylesheet" href="{% static 'vistas/styleFactura.css' %}">
+        <link rel="stylesheet" href="{% static 'vistas/globals.css' %}">
+        <script src="{% static 'js/scriptsFacturas.js' %}"></script>
+        <script src="{% static 'js/scriptsGlobal.js' %}"></script>
         <title>Facturas</title>
     </head>
     <body>
