@@ -191,7 +191,12 @@ class Factura_Controller:  # ---------------------------------------------------
             while contador < len(lista_cantidades):
                 codigo = lista_codigos[contador]
                 cantidad = lista_cantidades[contador]
-
+                
+                # Actualizar la cantidad de ventas del prodcto y su stock
+                producto_bd = Producto_BD()
+                producto_bd.actualizarStockYVentas(codigo, cantidad)
+                
+                # Asignar producto guia a la factura
                 producto = ProductoGuia(codigo, cantidad)
                 factura.agregarProducto(producto)
                 print(producto.obtener_diccionario_producto_guia())

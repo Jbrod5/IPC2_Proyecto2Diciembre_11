@@ -61,7 +61,8 @@ class Producto_BD:
         ET.SubElement(producto_elemento, "DESCRIPCION").text = productoAIngresar.obtener_descripion()
         ET.SubElement(producto_elemento, "PRECIO").text = productoAIngresar.obtener_precio()
         ET.SubElement(producto_elemento, "STOCK").text = productoAIngresar.obtener_stock()
-        ET.SubElement(producto_elemento, "VENTA").text = productoAIngresar.obtener_venta()
+        #ET.SubElement(producto_elemento, "VENTA").text = productoAIngresar.obtener_venta()
+        ET.SubElement(producto_elemento, "VENTA").text ="0"
         tree.write(self.ruta)
         
     # Obtiene todos los Productos del Archivo XML, en caso el archivo no exista retorna None    
@@ -174,11 +175,11 @@ class Producto_BD:
                 cliente_existente = root.find(f"./PRODUCTO[@ID='{codigoProducto}'][CODIGO='{codigoProducto}']")
                 
                 ventasRealizadas = int(cliente_existente.find("VENTA").text)  
-                ventasRealizadas += cantidadVentidad 
+                ventasRealizadas += int(cantidadVentidad) 
                 cliente_existente.find("VENTA").text = str(ventasRealizadas)
                 
                 stockActual = int(cliente_existente.find("STOCK").text)
-                stockActual -= cantidadVentidad 
+                stockActual -= int(cantidadVentidad) 
                 cliente_existente.find("STOCK").text = str(stockActual)
                 
                 tree.write(self.ruta)
@@ -186,5 +187,10 @@ class Producto_BD:
             except FileNotFoundError as err:
                 root = ET.Element("PRODUCTO_BD")
                 tree = ET.ElementTree(root)
+            #except Exception as err: 
+            #    return False
 
         return False
+    
+    def actualizar_stock_ventas(self, codigo_producto, cantidad_vendida):
+        pass
