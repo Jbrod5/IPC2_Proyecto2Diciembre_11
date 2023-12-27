@@ -24,4 +24,5 @@ urlpatterns = [
 
     # incluir urls de las apps externas
     path('venta/', include('venta.urls') ),
+    path('home/', include('vistas.urls')),
 ]

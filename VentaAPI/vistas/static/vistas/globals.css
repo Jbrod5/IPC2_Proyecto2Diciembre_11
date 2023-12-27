@@ -1,0 +1,119 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=JetBrains+Mono:400");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d4ced4;
+  font-family: "Verdana", Helvetica;
+}  
+
+.barra-superior {
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+}
+
+h1 {
+  position: absolute;
+  width: 200px;
+  height: 60px;
+  top: 0;
+  left: 80px;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 24px;
+  letter-spacing: -2px;
+  display: flex;
+  align-items: center;
+}
+  
+.logotipo {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: calc(50% - 20px);
+  left: 15px;
+  background-color: #00f7ff;
+  border-radius: 25px;
+}
+  
+.barra-busqueda {
+  position: absolute;
+  width: 800px;
+  height: 30px;
+  top: calc(50% - 15px);
+  left: 320px;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+}
+ 
+.barra-busqueda-input {
+  position: absolute;
+  width: 800px;
+  height: 30px;
+  top: 0;
+  font-family: "Verdana", Helvetica;
+  font-weight: 400;
+  color: #898989;
+  background-color: #00000000;
+  border-color: #00000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  padding-left: 40px;
+}
+
+.barra-busqueda-input:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid #f522b6 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+.backButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  background-color: #00000000;
+  border: 0px solid #00000000;
+  color: #ffffff;
+  position: absolute;
+  top: calc(50% - 20px);
+  right: 20px;
+
+  font-family: "Verdana", Helvetica;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0px;
+  cursor: pointer;
+  transition: border 0.3s, font-size 0.3s, color 0.3s;
+}
+
+.backButton:hover {
+  border: 3px solid #00f7ff;
+  font-size: 15px;
+  color: #00f7ff;
+}
+
+a {
+  text-decoration: none;
+}
