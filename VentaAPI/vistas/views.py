@@ -9,3 +9,7 @@ def verClientes(request):
 def verFacturas(request):
     return render(request, 'vistas/facturas.html')
 
+def verProductos(request):
+    return render(request, 'vistas/productos.html')
+
+
