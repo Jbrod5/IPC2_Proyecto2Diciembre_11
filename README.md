@@ -39,3 +39,6 @@ Sí, todos los cambios serán guardados en archivos XML específicos que serán 
 
 __2. ¿Es completamente necesario descargar Django?__
 Sí, el complemento de Django nos permite un correcto uso de la aplicación, ademas de ser el responsable de montar el servidor que contendrá la aplicación web.
+
+__3. A veces no me aparece el listado de Clientes o Productos ¿qué puedo hacer?__
+Un error que sucede en algunos navegadores, la forma mas sencilla de solucionarla es presionando las teclas __"Ctrl"__ + __"-"__ para bajar el zoom de la pagina a 90% y se mostraran perfectamente los listados.
