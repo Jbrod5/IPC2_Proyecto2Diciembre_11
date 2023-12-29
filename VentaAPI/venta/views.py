@@ -171,7 +171,7 @@ def ingresar_factura(request):
 
         controller.ingresar_factura_nueva(factura, lista_codigos, lista_cantidades)
         #return HttpResponse("Factura agregada correctamente")
-        return views.verFacturas()
+        return views.verFacturas(request)
 
 @csrf_exempt
 def obtener_facturas_cliente(requet, nit):

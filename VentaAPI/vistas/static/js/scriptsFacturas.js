@@ -64,5 +64,25 @@ function verFacturas() {
 
     if (vistaExistente) {
         divContenido.removeChild(vistaExistente);
+        
     }
+
+    if(!vistaExistente) {
+        $.getJSON('http://127.0.0.1:8000/venta/obtener-todas-las-facturas', function(data) {
+        var facturas = JSON.parse(data); // Convertir el objeto JSON en un array
+        console.log(facturas);
+        // Recorrer la lista de clientes y crear las tarjetas
+        facturas.forEach(function(factura) {
+            var cardHtml = 
+                `<div class="cardProducto">
+                    <h3 class="card-title"><strong>Producto:</strong> ${factura.noFactura}</h5>
+                    <p class="card-text"><strong>Codigo:</strong> ${factura.obtener_ListaProductosComprados}</p>
+                    
+                </div>`;
+                $('#contenido').append(cardHtml);
+            });
+        });
+    }
+
+    
 }
