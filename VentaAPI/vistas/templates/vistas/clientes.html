@@ -20,7 +20,10 @@
                 <h1>Punto de Venta</h1>
                 <div class="logotipo"></div>
                 <div class="barra-busqueda">
-                    <input type="text" class="barra-busqueda-input" placeholder="Buscar cliente..." />
+                    <form>
+                        <input type="text" class="barra-busqueda-input" id="barra-busqueda-input" placeholder="Buscar cliente por nit..." />
+                        <button type="submit" class="botonSubmit" onclick="cargarCliente()">Buscar</button>
+                    </form>
                 </div>
             </div>
         </header>

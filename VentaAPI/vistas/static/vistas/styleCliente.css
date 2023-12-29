@@ -220,3 +220,12 @@ input[type=number] {
     text-decoration: none;
     cursor: pointer;
   } 
+
+  .botonSubmit {
+    position: absolute;
+    top: calc(50% - 15px);
+    left: 820px;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+  }
