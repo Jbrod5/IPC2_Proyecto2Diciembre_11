@@ -14,6 +14,8 @@ from modelos.Cliente import Cliente
 from modelos.Producto import Producto
 from modelos.Factura import Factura
 
+from vistas import views
+
 # Create your views here.
 
 # CLIENTES ------------------------------------------------------------------------------------------------
@@ -46,7 +48,8 @@ def ingresar_cliente(request):
 
         cliente = Cliente(nit, nombre, direccion)
         controller.ingresar_cliente_nuevo(cliente)
-        return HttpResponse("Cliente ingresado correctamente!")
+        #return HttpResponse("Cliente ingresado correctamente!")
+        return views.verClientes(request)
 
 @csrf_exempt
 def eliminar_cliente(request):
@@ -56,7 +59,8 @@ def eliminar_cliente(request):
         data = QueryDict(request.body)
         nit = data.get('nit')
         controller.eliminar(nit)
-        return HttpResponse("Cliente eliminado correctamente")
+        #return HttpResponse("Cliente eliminado correctamente")
+        return views.verClientes(request)
 
 @csrf_exempt
 def actualizar_cliente(request):
@@ -70,7 +74,8 @@ def actualizar_cliente(request):
 
         cliente = Cliente(nit, nombre, direccion)
         controller.actualizar(cliente)
-        return HttpResponse("Cliente actualizado correctamente")
+        #return HttpResponse("Cliente actualizado correctamente")
+        return views.verClientes(request)
         
 
 # PRODUCTOS ----------------------------------------------------------------------------------------------
@@ -103,7 +108,8 @@ def ingresar_producto(request):
 
         producto = Producto(codigo, nombre, descripcion, precio, stock)
         controller.ingresar_producto_nuevo(producto)
-        return HttpResponse("Producto ingresado correctamente!")
+        #return HttpResponse("Producto ingresado correctamente!")
+        return views.verProductos()
     
 @csrf_exempt
 def eliminar_producto(request):
@@ -115,10 +121,11 @@ def eliminar_producto(request):
 
         eliminado = control.eliminar_producto(codigo_producto)
 
-        if eliminado:
-            return HttpResponse("Producto eliminado correctamente!")
-        else:
-            return HttpResponse("Fallo al eliminar el producto")
+        #if eliminado:
+            #return HttpResponse("Producto eliminado correctamente!")
+        #else:
+            #return HttpResponse("Fallo al eliminar el producto")
+        return views.verProductos(request) 
 
 @csrf_exempt
 def actualizar_producto(request):
@@ -134,11 +141,12 @@ def actualizar_producto(request):
 
         actualizar = control.actualizar_producto(codigo_producto, nombre, descripcion, precio, stock)
 
-        if actualizar:
-            return HttpResponse('Producto actualizado exitosamente!')
-        else:
-            return HttpResponse('No se pudo actualizar el producto')
-        
+        #if actualizar:
+        #    return HttpResponse('Producto actualizado exitosamente!')
+        #else:
+        #    return HttpResponse('No se pudo actualizar el producto')
+        return views.verProductos(request)
+
 # FACTURAS -------------------------------------------------------------------------------------------------
 
 @csrf_exempt
@@ -162,7 +170,8 @@ def ingresar_factura(request):
         factura = Factura(nit, " . ")
 
         controller.ingresar_factura_nueva(factura, lista_codigos, lista_cantidades)
-        return HttpResponse("Factura agregada correctamente")
+        #return HttpResponse("Factura agregada correctamente")
+        return views.verFacturas()
 
 @csrf_exempt
 def obtener_facturas_cliente(requet, nit):
@@ -181,4 +190,5 @@ def eliminar_factura(request):
     numero_factura = data.get('factura')
 
     controller.eliminar_factura(numero_factura)
-    return HttpResponse("Factura eliminada correctamente")
+    #return HttpResponse("Factura eliminada correctamente")
+    return views.verFacturas(request)
