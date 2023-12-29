@@ -1,6 +1,7 @@
+
 function cargarClientes() {
     var divContenido = document.getElementById("clientes-container");
-    var vistaExistente = document.querySelector(".col-md-4");
+    var vistaExistente = document.querySelector(".cardClientes");
     var vistaCrearCliente = document.querySelector(".form-cliente");
 
     if(vistaCrearCliente) {
@@ -14,35 +15,39 @@ function cargarClientes() {
         // Recorrer la lista de clientes y crear las tarjetas
         clientes.forEach(function(cliente) {
             var cardHtml = 
-                `<div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">${cliente._nombre}</h5>
-                            <p class="card-text"><strong>NIT:</strong> ${cliente._nit}</p>
-                            <p class="card-text"><strong>Dirección:</strong> ${cliente._direccion}</p>
+                `<div class="cardClientes">
+                    <h3 class="card-title">${cliente._nombre}</h5>
+                    <p class="card-text"><strong>NIT:</strong> ${cliente._nit}</p>
+                    <p class="card-text"><strong>Dirección:</strong> ${cliente._direccion}</p>
+                    
+                    <div class="dropdown">
+                        <button class="dropbtn">Dropdown</button>
+                            <div class="dropdown-content">
+                                <a href="#">Ver Mas</a>
+                                <a href="#">Editar</a>
+                                <a href="#">Eliminar</a>
+                            </div>
                         </div>
-                    </div>
                 </div>`;
                 $('#clientes-container').append(cardHtml);
             });
         });
     }
+    
 }
 
 function crearCliente() {
     var divContenido = document.getElementById("clientes-container");
-    var vistaVerClientes = document.querySelector(".col-md-4");
     var vistaExistente = document.querySelector(".form-cliente");
-
-    if(vistaVerClientes) {
-        divContenido.removeChild(vistaVerClientes);
+    while (divContenido.firstChild) {
+        divContenido.removeChild(divContenido.firstChild);
     }
 
     if (!vistaExistente) {
         var vista = document.createElement("div");
         vista.className = "form-cliente";
         vista.innerHTML =
-            `<h1>Formulario de Ingreso de Cliente</h1>
+            `<div class espacio-form>
             <form method="post" action="http://127.0.0.1:8000/venta/ingresar-cliente">
                 <div class="form-group">
                     <label for="nit">NIT:</label>
@@ -56,8 +61,37 @@ function crearCliente() {
                     <label for="direccion">Dirección:</label>
                     <input type="text" class="form-control" id="direccion" name="direccion" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="submitButton">Enviar</button>
             </form>`
         divContenido.appendChild(vista)
     }
 }
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("submitButton");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+} 
+
+
