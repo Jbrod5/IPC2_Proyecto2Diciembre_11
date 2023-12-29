@@ -6,6 +6,7 @@ class Producto:
         self._descripcion = descripcion
         self._precio = precio
         self._stock = stock
+        self._venta = 0
 
     def obtener_nombre(self):
         return self._nombre
@@ -17,6 +18,8 @@ class Producto:
         return self._stock
     def obtener_codigo(self):
         return self._codigo
+    def obtener_venta(self):
+        return self._venta
     def obtener_diccionario(self):
         return self.__dict__
 
@@ -30,3 +33,5 @@ class Producto:
         self._precio = precio
     def establecer_stock(self, stock):
         self._stock = stock
+    def establecer_venta(self, venta):
+        self._venta = venta

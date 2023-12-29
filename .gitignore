@@ -2,6 +2,8 @@
 VentaAPI/PRODUCTO_BD.xml
 VentaAPI/CLIENTE_BD.xml
 VentaAPI/FACTURA_BD.xml
+VentaAPI/CONTADOR_FACTURAS.xml
+VentaAPI/CONTADOR_FACTURAS.xml
 
 # Ignorar pycache
 __pycache__/
