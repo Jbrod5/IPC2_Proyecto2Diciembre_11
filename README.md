@@ -7,6 +7,9 @@
 3. Instalación
 4. Preguntas Frecuentes
 
+## Screenshots
+<img src = "https://drive.google.com/file/d/1Mb0yBhe79lzJUPMYvErY9u4MBSdRqFC1/view?usp=sharing"/>
+
 ## 1. Información General
 El programa consiste en una aplicación web que le permita a un punto de venta el poder gestionar, manejar y actualizar los datos referentes a sus clientes y productos, así como llevar un registro de sus facturas realizadas. Permitirá una movilización fácil al usuario y un cómodo manejo de las consultas y modificaciones que desee realizar.
 
