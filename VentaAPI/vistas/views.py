@@ -13,3 +13,4 @@ def verProductos(request):
     return render(request, 'vistas/productos.html')
 
 
+

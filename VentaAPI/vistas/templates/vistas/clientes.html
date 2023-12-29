@@ -16,7 +16,7 @@
     <body>
         <header>
             <div class="barra-superior">
-                <button class="backButton" onclick="irAHome()">-</button>
+                <button class="backButton" onclick="irAHome()"></button>
                 <h1>Punto de Venta</h1>
                 <div class="logotipo"></div>
                 <div class="barra-busqueda">
@@ -29,5 +29,16 @@
             <button class="button" id="crearCliente" onclick="crearCliente()">Crear Cliente</button>
         </div>
         <div class="clientes-container" id="clientes-container"></div>
+    
+        {% if mostrar_modal %}
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>¿Cliente agregado</p>
+            </div>
+          
+          </div>
+        {% endif %}
     </body>
 </html>

@@ -7,6 +7,7 @@
   font-family: "Poppins", sans-serif;
 }
 
+
 html, body {
   margin: 0;
   padding: 0;
@@ -16,6 +17,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Poppins", sans-serif;
   background-color: #d4ced4;
 }  
 
@@ -103,13 +105,19 @@ button:focus-visible {
   text-align: center;
   letter-spacing: 0px;
   cursor: pointer;
-  transition: border 0.3s, font-size 0.3s, color 0.3s;
+  background-image: url('../images/back.png');
+  background-size: 35px 35px;
+  background-repeat: no-repeat;
+  transition: border 0.3s, background-size 0.3s, color 0.3s;
 }
 
 .backButton:hover {
   border: 3px solid #00f7ff;
   font-size: 15px;
   color: #00f7ff;
+  background-size: 25px 25px;
+  background-position-y: center;
+  background-position-x: center;
 }
 
 a {

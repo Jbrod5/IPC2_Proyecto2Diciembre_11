@@ -1,3 +1,4 @@
+
 function cargarClientes() {
     var divContenido = document.getElementById("clientes-container");
     var vistaExistente = document.querySelector(".cardClientes");
@@ -17,12 +18,22 @@ function cargarClientes() {
                 `<div class="cardClientes">
                     <h3 class="card-title">${cliente._nombre}</h5>
                     <p class="card-text"><strong>NIT:</strong> ${cliente._nit}</p>
-                    <p class="card-text"><strong>Dirección:</strong> ${cliente._direccion}</p>                    
+                    <p class="card-text"><strong>Dirección:</strong> ${cliente._direccion}</p>
+                    
+                    <div class="dropdown">
+                        <button class="dropbtn">Dropdown</button>
+                            <div class="dropdown-content">
+                                <a href="#">Ver Mas</a>
+                                <a href="#">Editar</a>
+                                <a href="#">Eliminar</a>
+                            </div>
+                        </div>
                 </div>`;
                 $('#clientes-container').append(cardHtml);
             });
         });
     }
+    
 }
 
 function crearCliente() {
@@ -55,3 +66,32 @@ function crearCliente() {
         divContenido.appendChild(vista)
     }
 }
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("submitButton");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+} 
+
+
