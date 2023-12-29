@@ -1,3 +1,3 @@
 function irAHome() {
-    window.location.href = 'home.html';
-}
+    window.location.href = '/v/inicio/';
+} 

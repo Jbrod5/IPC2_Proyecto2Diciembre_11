@@ -3,8 +3,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="{% static 'vistas/styleFactura.css' %}">
+        
         <link rel="stylesheet" href="{% static 'vistas/globals.css' %}">
+        <link rel="stylesheet" href="{% static 'vistas/styleCliente.css' %}">
         <script src="{% static 'js/scriptsClientes.js' %}"></script>
         <script src="{% static 'js/scriptsGlobal.js' %}"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -26,8 +27,6 @@
             <button class="button" id="verClientes" onclick="cargarClientes()">Ver Clientes</button>
             <button class="button" id="crearCliente" onclick="crearCliente()">Crear Cliente</button>
         </div>
-        <div id="clientes-container" class="row"></div>
-
-        </div>
+        <div id="clientes-container"></div>
     </body>
 </html>

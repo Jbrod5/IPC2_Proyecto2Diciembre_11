@@ -3,8 +3,8 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="{% static 'vistas/styleHome.css' %}">
         <link rel="stylesheet" href="{% static 'vistas/globals.css' %}">
+        <link rel="stylesheet" href="{% static 'vistas/styleProducto.css' %}">
         <script src="{% static 'js/scriptsGlobal.js' %}"></script>
         <title>Clientes</title>
     </head>
@@ -19,5 +19,12 @@
                 <button class="backButton" onclick="irAHome()"><-</button>
             </div>
         </header>
+        <div class="espacio">
+            <button class="button" id="verProductos" onclick="">Ver Productos</button>
+            <button class="button" id="crearProductos" onclick="">Ingresar Producto</button>
+            <button class="button" id="buscarProducto" onclick="">Buscar Producto</button>
+        </div>
+        <div id="contenido">
+        </div>
     </body>
 </html>
