@@ -1,3 +1,7 @@
+body {
+    font-family: "Poppins", sans-serif;
+}
+
 .espacio {
     position: absolute;
     width: auto;
@@ -12,9 +16,9 @@
     justify-content: left;
 }
 
-#contenido {
+.producto-container {
     position: absolute;
-    width: 1200px;
+    width: 1100px;
     height: 530px;
     padding: 30px 25px;
     top: 100px;
@@ -24,6 +28,87 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-left: 20px;
+    flex-wrap: wrap; 
+    overflow-y: auto;
+    max-height: 530px;
+}
+
+.cardProducto {
+    border-radius: 10px;
+    width: calc(33.33% - 30px);
+    height: 180px;
+    background-color: #00000000;
+    color: black;
+    padding: 20px;
+    position: relative;
+    margin: 15px;
+    z-index: 0;
+    transition: 0.6s ease-in;
+    filter: drop-shadow(0 5px 10px 0 #ffffff);
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+}
+.cardProducto:hover{
+    transition-delay:0.2s ;
+    background-color: #00f7ff;
+    color: #04565b;
+  }
+  
+  
+  
+  .cardProducto p{
+      padding: 10px 0;
+  }
+
+h4 {
+    font-size: 40px;
+  }
+
+
+.form-control {
+	appearance: none;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid #00f7ff;
+	background: rgba(#00f7ff, .2);
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+	color: #04565b;
+}
+
+label {
+	color: #04565b;
+}
+
+.submitButton {
+	appearance: none;
+    background-color: #00000000;
+	border: .2em solid #00f7ff;
+	background: hsl(0 0 0/0);
+	padding: .85em 1.5em;
+	color: #00f7ff;
+	border-radius: 2em;
+	transition: 1s;
+    margin: 10px;
+	&:hover, &:focus, &:active {
+		background: #00f7ff;
+		color: #fff;
+	}
+}
+
+input[type=number] {
+	width: 3em;
+	padding: 0.5em;
+	border: .2em solid #00f7ff;
+	border-radius: 1em;
+	text-align: center;
+	color: #00f7ff;
+	appearance: textfield;
+	margin: 0;
+	&::-webkit-inner-spin-button {
+		opacity: 1;
+		background: red;
+	}
 }
 
 .button {
@@ -42,7 +127,6 @@
     border: 5px solid #db03ff;
     color: #db03ff;
   
-    font-family: "Verdana", Helvetica;
     font-weight: 400;
     letter-spacing: 0;
     line-height: normal;
@@ -72,7 +156,6 @@
     border: 2px solid #db03ff;
     color: #db03ff;
   
-    font-family: "Verdana", Helvetica;
     font-weight: 400;
     letter-spacing: 0;
     line-height: normal;
