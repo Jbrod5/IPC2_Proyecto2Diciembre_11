@@ -72,8 +72,6 @@ function verFacturas() {
     if (vistaExistente) {
         divContenido.removeChild(vistaExistente);
     }
-<<<<<<< Updated upstream
-=======
 
         $.getJSON('http://127.0.0.1:8000/venta/obtener-todas-las-facturas', function(data) {
         var facturas = JSON.parse(data); // Convertir el objeto JSON en un array
@@ -98,5 +96,4 @@ function verFacturas() {
     
 
     
->>>>>>> Stashed changes
 }
