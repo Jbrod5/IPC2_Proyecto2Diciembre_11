@@ -24,6 +24,12 @@ function eliminarProducto(elemento) {
 function agregarFactura() {
     var divContenido = document.getElementById("contenido");
     var vistaExistente = document.querySelector(".form-factura");
+    
+    while (divContenido.firstChild) {
+        divContenido.removeChild(divContenido.firstChild);
+    }
+
+
 
     if (!vistaExistente) {
         var vista = document.createElement("div");
@@ -66,4 +72,31 @@ function verFacturas() {
     if (vistaExistente) {
         divContenido.removeChild(vistaExistente);
     }
+<<<<<<< Updated upstream
+=======
+
+        $.getJSON('http://127.0.0.1:8000/venta/obtener-todas-las-facturas', function(data) {
+        var facturas = JSON.parse(data); // Convertir el objeto JSON en un array
+        console.log(facturas);
+        // Recorrer la lista de clientes y crear las tarjetas
+        facturas.forEach(function(factura) {
+            var cardHtml = 
+                `<div class="cardFactura">
+                    <h3 class="card-title"><strong>No. Factura:</strong> ${factura.Numero}</h5>
+                    <p class="card-text"><strong>Nit:</strong> ${factura.Nit}</p>
+                    <p class="card-text"><strong>Fecha de Emision:</strong> ${factura.Fecha_emision}</p>
+                    
+                </div>`;
+                $('#contenido').append(cardHtml);
+                var cardProducts = document.createElement('p');
+                cardProducts.className = 'card-text';
+                cardProducts.textContent = 'Productos: ' + JSON.stringify(factura.Productos);
+                $('.cardFactura').append(cardProducts);
+            });
+            
+        });
+    
+
+    
+>>>>>>> Stashed changes
 }

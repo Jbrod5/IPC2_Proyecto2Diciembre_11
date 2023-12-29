@@ -97,3 +97,67 @@
 #guardar {
     right: 15%;
 }
+.cardFactura {
+    border-radius: 10px;
+    
+    border-width: 2px;
+    border-color: black;
+    width: calc(33.33% - 30px);
+    height: 240px;
+    background-color: #00000000;
+    color: black;
+    padding: 20px;
+    position: relative;
+    margin: 15px;
+    z-index: 0;
+    transition: 0.6s ease-in;
+    filter: drop-shadow(0 5px 10px 0 #ffffff);
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+}
+.cardFactura:hover{
+    transition-delay:0.2s ;
+    background-color: #00f7ff;
+    color: #04565b;
+  }
+  
+  
+  
+  .cardFactura p{
+      padding: 10px 0;
+  }
+
+h4 {
+    font-size: 40px;
+  }
+
+
+.form-control {
+	appearance: none;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid #00f7ff;
+	background: rgba(#00f7ff, .2);
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+	color: #04565b;
+}
+
+label {
+	color: #04565b;
+}
+
+.submitButton {
+	appearance: none;
+    background-color: #00000000;
+	border: .2em solid #00f7ff;
+	background: hsl(0 0 0/0);
+	padding: .85em 1.5em;
+	color: #00f7ff;
+	border-radius: 2em;
+	transition: 1s;
+    margin: 10px;
+	&:hover, &:focus, &:active {
+		background: #00f7ff;
+		color: #fff;
+	}
+}
