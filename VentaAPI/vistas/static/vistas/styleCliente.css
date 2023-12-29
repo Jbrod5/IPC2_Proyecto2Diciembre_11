@@ -1,29 +1,19 @@
+body {
+    font-family: "Poppins", sans-serif;
+}
+
 .espacio-botones {
     position: absolute;
     width: auto;
     height: 530px;
     padding: 30px 25px;
     top: 100px;
-    left: 2.5%;
+    left: 5%;
     background-color: #ffffff;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: left;
-}
-
-#clientes-container {
-    position: absolute;
-    width: 1200px;
-    height: 530px;
-    padding: 30px 25px;
-    top: 100px;
-    right: 2.5%;
-    background-color: #ffffff;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
 .button {
@@ -41,8 +31,6 @@
     border-radius: 10px;
     border: 5px solid #db03ff;
     color: #db03ff;
-  
-    font-family: "Verdana", Helvetica;
     font-weight: 400;
     letter-spacing: 0;
     line-height: normal;
@@ -53,33 +41,118 @@
     transition: border 0.3s, color 0.3s;
 }
 
-.buttonForm {
+.clientes-container {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  
-    width: 150px;
-    height: 50px;
-      
-    gap: 20px;
-    margin: 10px 10px;
-
-    bottom: 2.5%;
-      
+    width: 1100px;
+    height: 530px;
+    padding: 30px 25px;
+    top: 100px;
+    right: 2.5%;
     background-color: #ffffff;
     border-radius: 10px;
-    border: 2px solid #db03ff;
-    color: #db03ff;
-  
-    font-family: "Verdana", Helvetica;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
+    margin-left: 20px;
+    flex-wrap: wrap; 
+    overflow-y: auto;
+    max-height: 530px;
+}
+
+.cardClientes {
+    border-radius: 10px;
+    width: calc(33.33% - 30px);
+    height: 180px;
+    background-color: #ffffff;
+    padding: 20px;
+    position: relative;
+    margin: 15px;
+    z-index: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in;
+    filter: drop-shadow(0 5px 10px 0 #ffffff);
+    
+
+}
+
+.cardClientes::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -15px;
+    right: -15px;
+    background: #00f7ff;
+    height:220px;
+    width: 25px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
   
-    cursor: pointer;
-    transition: border 0.3s, color 0.3s;
+  .cardClientes:hover::before{
+      transition-delay:0.2s ;
+  
+    transform: scale(40);
+  }
+  
+  .cardClientes:hover{
+      color: #04565b;
+  
+  }
+  
+  .cardClientes p{
+      padding: 10px 0;
+  }
+
+h4 {
+    font-size: 40px;
+  }
+
+
+.form-control {
+	appearance: none;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid #00f7ff;
+	background: rgba(#00f7ff, .2);
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+	color: #04565b;
+}
+
+label {
+	color: #04565b;
+}
+
+.submitButton {
+	appearance: none;
+    background-color: #00000000;
+	border: .2em solid #00f7ff;
+	background: hsl(0 0 0/0);
+	padding: .85em 1.5em;
+	color: #00f7ff;
+	border-radius: 2em;
+	transition: 1s;
+    margin: 10px;
+	&:hover, &:focus, &:active {
+		background: #00f7ff;
+		color: #fff;
+	}
+}
+
+input[type=number] {
+	width: 3em;
+	padding: 0.5em;
+	border: .2em solid #00f7ff;
+	border-radius: 1em;
+	text-align: center;
+	color: #00f7ff;
+	appearance: textfield;
+	margin: 0;
+	&::-webkit-inner-spin-button {
+		opacity: 1;
+		background: red;
+	}
 }
 

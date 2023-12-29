@@ -1,8 +1,10 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 @import url("https://fonts.googleapis.com/css?family=JetBrains+Mono:400");
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext");
 * {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 html, body {
@@ -15,7 +17,6 @@ html, body {
   justify-content: center;
   align-items: center;
   background-color: #d4ced4;
-  font-family: "Verdana", Helvetica;
 }  
 
 .barra-superior {
@@ -66,7 +67,6 @@ h1 {
   width: 800px;
   height: 30px;
   top: 0;
-  font-family: "Verdana", Helvetica;
   font-weight: 400;
   color: #898989;
   background-color: #00000000;
@@ -96,8 +96,6 @@ button:focus-visible {
   position: absolute;
   top: calc(50% - 20px);
   right: 20px;
-
-  font-family: "Verdana", Helvetica;
   font-weight: 400;
   font-size: 20px;
   letter-spacing: 0;
