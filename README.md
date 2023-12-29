@@ -23,7 +23,10 @@ Las tecnologías utilizadas para la creación de este proyecto son:
 El programa corre sobre el framework de Django, el cual requiere su instalación en nuestro dispositivo para la correcta ejecución del proyecto.
 
 Para instalar Django, es necesario ingresar el siguiente comando en la terminal/CMD o en la terminal integrada en Visual Studio Code:
-    pip install django
+
+´´´ bash    
+pip install django
+´´´
 
 Una vez ejecutado este comando, se descargarán e instalaran los complementos necesario para la ejecución del programa.
 
