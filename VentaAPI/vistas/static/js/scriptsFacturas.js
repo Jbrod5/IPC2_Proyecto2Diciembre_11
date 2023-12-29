@@ -11,7 +11,7 @@ function agregarProducto() {
             <input type="text" class="form-control" name="cantidad[]" placeholder="Cantidad">
         </div>
         <div class="col-auto">
-            <button type="button" class="submitButton" onclick="eliminarProducto(this)">Eliminar</button>
+            <button type="button" class="btn btn-danger" onclick="eliminarProducto(this)">Eliminar</button>
         </div>`;
     divProductos.appendChild(nuevoProducto);
 }
@@ -32,19 +32,20 @@ function agregarFactura() {
             `<div class="container">
                 <form action="http://127.0.0.1:8000/venta/ingresar-factura" method="POST">
                     <div class="titulo">
-                        <input type="text" class="form-control" id="nit" name="nit" placeholder="NIT">
+                        <label for="nit">NIT</label>
+                        <input type="text" class="input" id="nit" name="nit" placeholder="NIT">
                     </div>
 
                     <div id="productos">
                         <div class="form">
                             <div class="col">
-                                <input type="text" class="form-control" name="codigo[]" placeholder="Codigo del producto">
+                                <input type="text" class="inputForm" name="codigo[]" placeholder="Codigo del producto">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="cantidad[]" placeholder="Cantidad">
+                                <input type="text" class="inputForm" name="cantidad[]" placeholder="Cantidad">
                             </div>
                             <div class="col-auto">
-                                <button type="button" class="submitButton" onclick="eliminarProducto(this)">Eliminar</button>
+                                <button type="button" class="btn btn-danger" onclick="eliminarProducto(this)">Eliminar</button>
                             </div>
                         </div>
                     </div>
@@ -64,25 +65,5 @@ function verFacturas() {
 
     if (vistaExistente) {
         divContenido.removeChild(vistaExistente);
-        
     }
-
-    if(!vistaExistente) {
-        $.getJSON('http://127.0.0.1:8000/venta/obtener-todas-las-facturas', function(data) {
-        var facturas = JSON.parse(data); // Convertir el objeto JSON en un array
-        console.log(facturas);
-        // Recorrer la lista de clientes y crear las tarjetas
-        facturas.forEach(function(factura) {
-            var cardHtml = 
-                `<div class="cardProducto">
-                    <h3 class="card-title"><strong>Producto:</strong> ${factura.noFactura}</h5>
-                    <p class="card-text"><strong>Codigo:</strong> ${factura.obtener_ListaProductosComprados}</p>
-                    
-                </div>`;
-                $('#contenido').append(cardHtml);
-            });
-        });
-    }
-
-    
 }

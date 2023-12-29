@@ -1,0 +1,243 @@
+body {
+  /* background: linear-gradient(450deg, #141e30, #243b55); */
+  background-color: #33465c;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+}
+
+img {
+  filter: grayscale();
+}
+
+footer {
+  overflow: hidden;
+  display: flex;
+  bottom: 0;
+  background: black;
+  justify-content: end;
+  height: 40px;
+}
+
+footer h2 {
+  top: -30%;
+  right: 1%;
+  color: rgb(72, 72, 72);
+}
+
+header {
+  overflow: hidden;
+  display: flex;
+  top: 0;
+  background: black;
+  padding: 10px 10px;
+  justify-content: end;
+}
+
+a {
+  text-decoration: none;
+  background-color: #000;
+  border: 0;
+  color: white;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  gap: 10px;
+}
+
+.cardCliente {
+  width: 300px;
+  height: 140px;
+  border: 1px solid #000;
+  border-radius: 15px;
+  background-color: #ff1d44;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardProducto {
+  width: 300px;
+  height: 140px;
+  border: 1px solid #000;
+  border-radius: 15px;
+  background-color: #2bfeef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  position: relative;
+  margin-left: 40px;
+  top: -30px;
+  color: black;
+}
+
+#imgCliente {
+  position: relative;
+  padding: 60px;
+  top: 40px;
+  width: 45%;
+  height: 45%;
+}
+#imgProd {
+  position: relative;
+  padding: 60px;
+  top: 40px;
+  width: 55%;
+  height: 55%;
+}
+#cant {
+  position: relative;
+  margin-left: -65px;
+  top: -60px;
+  color: black;
+}
+
+#cant1 {
+  position: relative;
+  margin-left: -65px;
+  top: -60px;
+  color: black;
+}
+
+.contenedorGraficos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  gap: 10px;
+}
+
+.contenedorGraficos .cardReportUser {
+  width: 650px;
+  height: 100%;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contenedorGraficos .cardReportProd {
+  width: 900px;
+  height: 100%;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --------------------- */
+.canciones:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.detalles {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.menu {
+  position: relative;
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
+
+.menu div {
+  position: relative;
+  width: 0;
+  height: 9px;
+  border-radius: 10px;
+  background-color: #ca1183;
+}
+
+/* animacion */
+#uno-menu {
+  animation: uno-barra 3s forwards;
+}
+
+@keyframes uno-barra {
+  100% {
+    width: 90%;
+  }
+}
+
+#dos-menu {
+  animation: dos-barra 3s forwards;
+}
+
+@keyframes dos-barra {
+  100% {
+    width: 80%;
+  }
+}
+
+#tres-menu {
+  animation: tres-barra 3s forwards;
+}
+
+@keyframes tres-barra {
+  100% {
+    width: 70%;
+  }
+}
+#cuatro-menu {
+  animation: cuatro-barra 3s forwards;
+}
+
+@keyframes cuatro-barra {
+  100% {
+    width: 60%;
+  }
+}
+#cinco-menu {
+  animation: cinco-barra 3s forwards;
+}
+
+@keyframes cinco-barra {
+  100% {
+    width: 50%;
+  }
+}
+#seis-menu {
+  animation: seis-barra 3s forwards;
+}
+
+@keyframes seis-barra {
+  100% {
+    width: 40%;
+  }
+}
+#siete-menu {
+  animation: siete-barra 3s forwards;
+}
+
+@keyframes siete-barra {
+  100% {
+    width: 30%;
+  }
+}
+#ocho-menu {
+  animation: ocho-barra 3s forwards;
+}
+
+@keyframes ocho-barra {
+  100% {
+    width: 20%;
+  }
+}

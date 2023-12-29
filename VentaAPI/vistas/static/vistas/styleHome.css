@@ -9,7 +9,7 @@
   flex-direction: row;
   justify-content: center;
 }
-  
+
 .button {
   display: flex;
   flex-direction: column;
@@ -17,16 +17,17 @@
 
   width: 300px;
   height: 400px;
-    
+
   gap: 20px;
   padding: 35px 20px;
   margin: 65px 45px;
-    
+
   background-color: #ffffff;
   border-radius: 10px;
   border: 5px solid #db03ff;
   color: #db03ff;
-  
+
+  font-family: "Verdana", Helvetica;
   font-weight: 400;
   font-size: 24px;
   letter-spacing: 0;
@@ -37,9 +38,8 @@
   transition: border 0.3s, color 0.3s;
 }
 
-
 #botonFacturas {
-  background-image: url('../images/facturamorada.png');
+  background-image: url("../images/facturamorada.png");
   background-size: 200px 200px;
   background-position-x: center;
   background-position-y: 35%;
@@ -48,9 +48,9 @@
 }
 
 #botonFacturas:hover {
-  background-image: url('../images/facturarosa.png');
-  border: 5px solid #FF1B8E;
-  color: #FF1B8E;
+  background-image: url("../images/facturarosa.png");
+  border: 5px solid #ff1b8e;
+  color: #ff1b8e;
 }
 
 #botonClientes {
@@ -65,8 +65,8 @@
 #botonClientes:hover {
   /*background-image: url("../assets/clienteturquesa.png");*/
   background-image: url("../images/clienterosa.png");
-  border: 5px solid #FF1B8E;
-  color: #FF1B8E;
+  border: 5px solid #ff1b8e;
+  color: #ff1b8e;
 }
 
 #botonProductos {
@@ -81,7 +81,24 @@
 #botonProductos:hover {
   /*background-image: url("../assets/productoturquesa.png");*/
   background-image: url("../images/productorosa.png");
-  border: 5px solid #FF1B8E;
-  color: #FF1B8E;
+  border: 5px solid #ff1b8e;
+  color: #ff1b8e;
 }
-  
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background: black;
+  height: 40px;
+  width: 100%;
+  justify-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  font-weight: bold;
+}

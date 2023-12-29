@@ -109,7 +109,7 @@ def ingresar_producto(request):
         producto = Producto(codigo, nombre, descripcion, precio, stock)
         controller.ingresar_producto_nuevo(producto)
         #return HttpResponse("Producto ingresado correctamente!")
-        return views.verProductos(request)
+        return views.verProductos()
     
 @csrf_exempt
 def eliminar_producto(request):
@@ -171,7 +171,7 @@ def ingresar_factura(request):
 
         controller.ingresar_factura_nueva(factura, lista_codigos, lista_cantidades)
         #return HttpResponse("Factura agregada correctamente")
-        return views.verFacturas(request)
+        return views.verFacturas()
 
 @csrf_exempt
 def obtener_facturas_cliente(requet, nit):

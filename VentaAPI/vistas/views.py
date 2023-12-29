@@ -12,5 +12,9 @@ def verFacturas(request):
 def verProductos(request):
     return render(request, 'vistas/productos.html')
 
-
+def verReportes(request):
+    cantProd = 50
+    return render(request, 'vistas/reporte.html', {
+        'cantProd':cantProd
+    })
 

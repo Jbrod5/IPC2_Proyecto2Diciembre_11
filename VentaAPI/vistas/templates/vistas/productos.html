@@ -6,10 +6,7 @@
         <link rel="stylesheet" href="{% static 'vistas/globals.css' %}">
         <link rel="stylesheet" href="{% static 'vistas/styleProducto.css' %}">
         <script src="{% static 'js/scriptsGlobal.js' %}"></script>
-        <script src="{% static 'js/scriptProductos.js' %}"></script>
-        
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <title>Productos</title>
+        <title>Clientes</title>
     </head>
     <body>
         <header>
@@ -17,17 +14,17 @@
                 <h1>Punto de Venta</h1>
                 <div class="logotipo"></div>
                 <div class="barra-busqueda">
-                    <input type="text" class="barra-busqueda-input" placeholder="Buscar producto..." />
+                    <input type="text" class="barra-busqueda-input" placeholder="Buscar cliente..." />
                 </div>
-                <button class="backButton" onclick="irAHome()"></button>
+                <button class="backButton" onclick="irAHome()"><-</button>
             </div>
         </header>
         <div class="espacio">
-            <button class="button" id="verProductos" onclick="cargarProductos()">Ver Productos</button>
-            <button class="button" id="crearProductos" onclick="crearProducto()">Agregar Producto</button>
+            <button class="button" id="verProductos" onclick="">Ver Productos</button>
+            <button class="button" id="crearProductos" onclick="">Ingresar Producto</button>
             <button class="button" id="buscarProducto" onclick="">Buscar Producto</button>
         </div>
-        <div class="producto-container" id="producto-container"></div>
-    
+        <div id="contenido">
+        </div>
     </body>
 </html>

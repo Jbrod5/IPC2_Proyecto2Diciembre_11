@@ -8,4 +8,5 @@ urlpatterns = [
     path('facturas/', views.verFacturas),
     path('clientes/', views.verClientes),
     path('productos/', views.verProductos),
+    path('reportes/', views.verReportes),
 ]

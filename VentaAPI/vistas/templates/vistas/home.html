@@ -1,28 +1,34 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="{% static 'vistas/styleHome.css' %}">
-        <link rel="stylesheet" href="{% static 'vistas/globals.css' %}">
-        <script src="{% static 'js/scriptsHome.js' %}"></script>
-        <title>Punto de venta</title>
-    </head>
-    <body>
-        <header class="header">
-            <div class="barra-superior">
-                <h1>Punto de Venta</h1>
-                <div class="logotipo"></div>
-                <div class="barra-busqueda">
-                    <input type="text" class="barra-busqueda-input" placeholder="Buscar producto..." />
-                </div>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static 'vistas/styleHome.css' %}">
+    <link rel="stylesheet" href="{% static 'vistas/globals.css' %}">
+    <script src="{% static 'js/scriptsHome.js' %}"></script>
+    <title>Punto de venta</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="barra-superior">
+            <h1>Punto de Venta</h1>
+            <div class="logotipo"></div>
+            <div class="barra-busqueda">
+                <input type="text" class="barra-busqueda-input" placeholder="Buscar producto..." />
             </div>
-        </header>
-        <div class="espacio-botones">
-            <button class="button" id="botonClientes" onclick="irAClientes()">Clientes</button>
-            <button class="button" id="botonProductos" onclick="irAProductos()">Productos</button>
-            <button class="button" id="botonFacturas" onclick="irAFacturas()">Facturas</button>
         </div>
-    </body>
+    </header>
+    <div class="espacio-botones">
+        <button class="button" id="botonClientes" onclick="irAClientes()">Clientes</button>
+        <button class="button" id="botonProductos" onclick="irAProductos()">Productos</button>
+        <button class="button" id="botonFacturas" onclick="irAFacturas()">Facturas</button>
+    </div>
+
+    <footer>
+        <a href="http://127.0.0.1:8000/v/reportes/">Reportes</a>
+    </footer>
+</body>
+
 </html>
-    
