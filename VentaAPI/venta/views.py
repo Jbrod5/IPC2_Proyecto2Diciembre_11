@@ -109,7 +109,7 @@ def ingresar_producto(request):
         producto = Producto(codigo, nombre, descripcion, precio, stock)
         controller.ingresar_producto_nuevo(producto)
         #return HttpResponse("Producto ingresado correctamente!")
-        return views.verProductos()
+        return views.verProductos(request)
     
 @csrf_exempt
 def eliminar_producto(request):

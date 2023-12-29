@@ -12,16 +12,24 @@ function crearProducto() {
             `<div class espacio-form>
             <form method="post" action="http://127.0.0.1:8000/venta/ingresar-producto">
                 <div class="form-group">
-                    <label for="nit">NIT:</label>
-                    <input type="text" class="form-control" id="nit" name="nit" required>
+                    <label for="codigo">Codigo:</label>
+                    <input type="text" class="form-control" id="codigo" name="codigo" required>
                 </div>
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" required>
                 </div>
                 <div class="form-group">
-                    <label for="direccion">Dirección:</label>
-                    <input type="text" class="form-control" id="direccion" name="direccion" required>
+                    <label for="descripcion">Descripcion:</label>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio:</label>
+                    <input type="text" class="form-control" id="precio" name="precio" required>
+                </div>
+                <div class="form-group">
+                    <label for="stock">Stock:</label>
+                    <input type="text" class="form-control" id="stock" name="stock" required>
                 </div>
                 <button type="submit" class="submitButton">Enviar</button>
             </form>`
@@ -39,26 +47,18 @@ function cargarProductos() {
     }
 
     if (!vistaExistente) {
-        $.getJSON('http://127.0.0.1:8000/venta/obtener-todas-los-productos', function(data) {
+        $.getJSON('http://127.0.0.1:8000/venta/obtener-todos-los-productos', function(data) {
         var productos = JSON.parse(data); // Convertir el objeto JSON en un array
-        console.log(clientes);
+        console.log(productos);
         // Recorrer la lista de clientes y crear las tarjetas
         productos.forEach(function(producto) {
             var cardHtml = 
                 `<div class="cardProducto">
-                    <h3 class="card-title">${producto._nombre}</h5>
-                    <p class="card-text"><strong>NIT:</strong> ${producto._codigo}</p>
-                    <p class="card-text"><strong>Dirección:</strong> ${cliente._descripcion}</p>
-                    <p class="card-text"><strong>Dirección:</strong> ${cliente._precio}</p>
+                    <h3 class="card-title"><strong>Producto:</strong> ${producto._nombre}</h5>
+                    <p class="card-text"><strong>Codigo:</strong> ${producto._codigo}</p>
+                    <p class="card-text"><strong>Descripcion:</strong> ${producto._descripcion}</p>
+                    <p class="card-text"><strong>Precio:</strong> ${producto._precio}</p>
                     
-                    <div class="dropdown">
-                        <button class="dropbtn">Dropdown</button>
-                            <div class="dropdown-content">
-                                <a href="#">Ver Mas</a>
-                                <a href="#">Editar</a>
-                                <a href="#">Eliminar</a>
-                            </div>
-                        </div>
                 </div>`;
                 $('#producto-container').append(cardHtml);
             });
